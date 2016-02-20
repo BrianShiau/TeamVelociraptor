@@ -242,7 +242,7 @@ public class Hero : MonoBehaviour
 			if (this.HeroController.Jump)
 			{
 				bool isJumpingOffGround = this.CanJumpOffGround();
-				if (isJumpingOffGround || this.CanDoubleJump)
+				if (isJumpingOffGround /*|| this.CanDoubleJump*/)
 				{
 					bool doubleJumped = false;
 
