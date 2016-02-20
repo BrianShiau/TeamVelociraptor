@@ -27,10 +27,10 @@ public class BlockScript : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		Punch punch = collision.gameObject.GetComponent<Punch>();
-		if (hero != null)
+		if (punch != null)
 		{
-			hero.Hit(this.OwnerHero);
-			SoundFX.Instance.OnHeroHit(hero);
+            DamageBuilding();
+			SoundFX.Instance.OnHeroHit(punch.OwnerHero);
 		}
 
 		Destroy(this.gameObject);
