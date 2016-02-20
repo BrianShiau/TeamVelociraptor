@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public class Person : MonoBehaviour
@@ -45,12 +44,15 @@ public class Person : MonoBehaviour
     {
         RunSpeed = 1f;
         TurnTime = .2f;
-        TurnChance = .01f;
-        CollisionLayers = LayerMask.NameToLayer("Everything") ^ LayerMask.NameToLayer("Person");
+        TurnChance = .25f;
+        CollisionLayers = LayerMask.NameToLayer("Everything") ^ (1 << LayerMask.NameToLayer("People"));
 
-        if (!LeftSensor) CreateLeftSensor();
-        if (!RightSensor) CreateRightSensor();
-        if (!GroundSensor) CreateGroundSensor();
+        if (!LeftSensor)
+            CreateLeftSensor();
+        if (!RightSensor)
+            CreateRightSensor();
+        if (!GroundSensor)
+            CreateGroundSensor();
 
         Animator = GetComponent<Animator>();
     }
@@ -64,13 +66,13 @@ public class Person : MonoBehaviour
         TurnChanceTimer = Random.value;
         TurningBoolHash = Animator.StringToHash(TurningBool);
     }
-    
-	// Use this for initialization
-	public void Start ()
-	{
-	    Collider2D = GetComponent<Collider2D>();
-	    Rigidbody2D = GetComponent<Rigidbody2D>();
-	}
+
+    // Use this for initialization
+    public void Start()
+    {
+        Collider2D = GetComponent<Collider2D>();
+        Rigidbody2D = GetComponent<Rigidbody2D>();
+    }
 
     public void FixedUpdate()
     {
@@ -96,7 +98,7 @@ public class Person : MonoBehaviour
             {
                 TurnChanceTimer = 0f;
 
-                if(Random.value < TurnChance)
+                if (Random.value < TurnChance)
                     TurnAround();
             }
         }
@@ -113,7 +115,8 @@ public class Person : MonoBehaviour
 
                 if (Animator)
                 {
-                    if(TurningBoolHash != 0) Animator.SetBool(TurningBoolHash, false);
+                    if (TurningBoolHash != 0)
+                        Animator.SetBool(TurningBoolHash, false);
                 }
             }
         }
@@ -137,13 +140,16 @@ public class Person : MonoBehaviour
 
     protected void CreateSensors()
     {
-        if(LeftSensor) Destroy(LeftSensor.gameObject);
+        if (LeftSensor)
+            Destroy(LeftSensor.gameObject);
         CreateLeftSensor();
 
-        if(RightSensor) Destroy(RightSensor.gameObject);
+        if (RightSensor)
+            Destroy(RightSensor.gameObject);
         CreateRightSensor();
 
-        if (GroundSensor) Destroy(GroundSensor.gameObject);
+        if (GroundSensor)
+            Destroy(GroundSensor.gameObject);
         CreateGroundSensor();
     }
 
