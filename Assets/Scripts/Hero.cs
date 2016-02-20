@@ -200,7 +200,7 @@ public class Hero : MonoBehaviour
 			if (this.HeroController.Shooting && this.TimeUntilNextProjectile < 0.0f)
 			{
 				this.TimeUntilNextProjectile = this.ProjectileDelay;
-				Punch projectile = (GameObject)GameObject.Instantiate(this.Projectile, this.ProjectileEmitLocator.transform.position, Quaternion.identity);
+				GameObject projectile = (GameObject)GameObject.Instantiate(this.Projectile, this.ProjectileEmitLocator.transform.position, Quaternion.identity);
 				projectile.GetComponent<SpriteRenderer>().sprite = this.ProjectileSprite;
 				projectile.GetComponent<Projectile>().OwnerHero = this;
 				projectile.transform.localScale = this.transform.localScale;
