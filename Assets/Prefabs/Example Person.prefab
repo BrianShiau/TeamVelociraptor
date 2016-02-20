@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 436852}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Right Sensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 61: {fileID: 6158910}
   - 50: {fileID: 5040066}
   - 114: {fileID: 11478914}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Example Person
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 444354}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Left Sensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 451978}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Ground Sensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ MonoBehaviour:
   TurnChance: 0.25
   CollisionLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294965247
   LeftSensor: {fileID: 444354}
   RightSensor: {fileID: 436852}
   GroundSensor: {fileID: 451978}
@@ -209,7 +209,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: CollisionLayers.m_Bits
+      value: 4294965247
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 158876}

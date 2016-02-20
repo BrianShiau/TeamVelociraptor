@@ -46,7 +46,7 @@ public class Person : MonoBehaviour
         RunSpeed = 1f;
         TurnTime = .2f;
         TurnChance = .01f;
-        CollisionLayers = LayerMask.NameToLayer("Everything");
+        CollisionLayers = LayerMask.NameToLayer("Everything") ^ LayerMask.NameToLayer("Person");
 
         if (!LeftSensor) CreateLeftSensor();
         if (!RightSensor) CreateRightSensor();
