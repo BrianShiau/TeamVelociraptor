@@ -11,7 +11,7 @@ public class Person : MonoBehaviour
     public float RunSpeed;
     public float TurnTime;
 
-    [Range(0f, 1f), Tooltip("Chance every tick")]
+    [Range(0f, 1f), Tooltip("Chance each second.")]
     public float TurnChance;
 
     [Header("Collision")]
@@ -61,7 +61,7 @@ public class Person : MonoBehaviour
         FacingForward = Random.value > 0.5f;
         OnGround = false;
         TurnTimer = 0f;
-        TurnChanceTimer = 0f;
+        TurnChanceTimer = Random.value;
         TurningBoolHash = Animator.StringToHash(TurningBool);
     }
     
@@ -86,8 +86,8 @@ public class Person : MonoBehaviour
         {
             vx = FacingForward ? RunSpeed : -RunSpeed;
 
-            if (Physics2D.Linecast(transform.position, LeftSensor.position) ||
-                Physics2D.Linecast(transform.position, RightSensor.position))
+            if (Physics2D.Linecast(transform.position, LeftSensor.position, CollisionLayers) ||
+                Physics2D.Linecast(transform.position, RightSensor.position, CollisionLayers))
             {
                 TurnAround();
             }
