@@ -200,7 +200,7 @@ public class Hero : MonoBehaviour
 			if (this.HeroController.Shooting && this.TimeUntilNextProjectile < 0.0f)
 			{
 				this.TimeUntilNextProjectile = this.ProjectileDelay;
-				GameObject projectile = (GameObject)GameObject.Instantiate(this.Projectile, this.ProjectileEmitLocator.transform.position, Quaternion.identity);
+				Punch projectile = (GameObject)GameObject.Instantiate(this.Projectile, this.ProjectileEmitLocator.transform.position, Quaternion.identity);
 				projectile.GetComponent<SpriteRenderer>().sprite = this.ProjectileSprite;
 				projectile.GetComponent<Projectile>().OwnerHero = this;
 				projectile.transform.localScale = this.transform.localScale;
@@ -211,14 +211,15 @@ public class Hero : MonoBehaviour
 			}
 
 
-			bool controllerIssuedStomp = (this.HeroController.Jump && !this.CanDoubleJump);
+			//no stomping
+			/*bool controllerIssuedStomp = (this.HeroController.Jump && !this.CanDoubleJump);
 			if (controllerIssuedStomp && !this.CanJumpOffGround() && this.canStomp)
 			{
 				this.canStomp = false;
 				this.Stomping = true;
 				this.velocity = new Vector2(0.0f, this.StompSpeed);
 				SoundFX.Instance.OnHeroStompStart(this);
-			}
+			}*/
 		}
 
 		if (this.HeroController.GetResetGame)

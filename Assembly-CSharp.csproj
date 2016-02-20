@@ -165,10 +165,12 @@
      <Compile Include="Assets\Scripts\HeroController.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviourExt.cs" />
      <Compile Include="Assets\Scripts\ParallaxEffect.cs" />
+     <Compile Include="Assets\Scripts\Person.cs" />
      <Compile Include="Assets\Scripts\Pickup.cs" />
      <Compile Include="Assets\Scripts\PickupGenerator.cs" />
      <Compile Include="Assets\Scripts\PopAndLandOnColliderBelow.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
+     <Compile Include="Assets\Scripts\Punch.cs" />
      <Compile Include="Assets\Scripts\RandomExt.cs" />
      <Compile Include="Assets\Scripts\RotateInPlace.cs" />
      <Compile Include="Assets\Scripts\ScoreKeeper.cs" />
